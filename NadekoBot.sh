@@ -7,4 +7,12 @@
   echo "Downloading NadekoBot, please wait."
   git clone -b 1.0 --recursive -v https://github.com/Kwoth/NadekoBot.git
   echo "NadekoBot downloaded."
+  echo "Building NadekoBot"
+  cd NadekoBot/discord.net/src/Discord.Net
+  dotnet restore && dotnet build --configuration Release
+  cd ../Discord.Net.Commands/ && dotnet restore && dotnet build --configuration Release
+  cd ../../../src/NadekoBot/ && dotnet restore && dotnet build --configuration Release
+  sudo cp ./bin/Release/netcoreapp1.0/libs/* ./bin/Release/netcoreapp1.0/data/
+  echo "Setting up NadekoBot"
+  dotnet run --configuration Release
 exit 0
