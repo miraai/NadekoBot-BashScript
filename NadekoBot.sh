@@ -3,8 +3,8 @@
   echo "Mirai was here."
   
   if git --version 2>&1 >/dev/null; 
-  then echo "Git Installed" 
-  else echo "GIT is not installed. Please install GIT."
+  then echo "Git Installed." 
+  else echo "Git is not installed. Please install Git."
   
   if dotnet --version 2>&1 >/dev/null; 
   then echo "Dotnet installed." 
