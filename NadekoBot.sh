@@ -1,7 +1,7 @@
 #!/bin/bash
   if git --version 2>&1 >/dev/null; 
   then echo "Git Installed" 
-  else echo "No GIT"
+  else echo "No GIT" | exit 1
   echo "NadekoBot 1.0 Download"
   echo "Mirai was here."
   mkdir NadekoBot-temp
