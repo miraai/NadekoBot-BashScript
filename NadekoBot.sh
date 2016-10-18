@@ -4,11 +4,11 @@
   
   if git --version 2>&1 >/dev/null; 
   then echo "Git Installed." 
-  else echo "Git is not installed. Please install Git."
+  else echo "Git is not installed. Please install Git." | exit 1
   
   if dotnet --version 2>&1 >/dev/null; 
   then echo "Dotnet installed." 
-  else echo "Dotnet is not installed. Please install dotnet."
+  else echo "Dotnet is not installed. Please install dotnet." | exit 1
 
   mkdir NadekoBot-temp
   echo "Created NadekoBot-temp folder"
