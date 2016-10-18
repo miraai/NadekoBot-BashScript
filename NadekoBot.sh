@@ -1,9 +1,15 @@
 #!/bin/bash
-  if git --version 2>&1 >/dev/null; 
-  then echo "Git Installed" 
-  else echo "No GIT" | exit 1
   echo "NadekoBot 1.0 Download"
   echo "Mirai was here."
+  
+  if git --version 2>&1 >/dev/null; 
+  then echo "Git Installed" 
+  else echo "GIT is not installed. Please install GIT."
+  
+  if dotnet --version 2>&1 >/dev/null; 
+  then echo "Dotnet installed." 
+  else echo "Dotnet is not installed. Please install dotnet."
+
   mkdir NadekoBot-temp
   echo "Created NadekoBot-temp folder"
   cd NadekoBot-temp
