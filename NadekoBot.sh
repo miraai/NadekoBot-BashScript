@@ -3,7 +3,7 @@
   echo "Mirai was here."
   mkdir NadekoBot-temp
   echo "Created NadekoBot-temp folder"
-  cd temp
+  cd NadekoBot-temp
   echo "Downloading NadekoBot, please wait."
   git clone -b 1.0 --recursive -v https://github.com/Kwoth/NadekoBot.git
   echo "NadekoBot downloaded."
