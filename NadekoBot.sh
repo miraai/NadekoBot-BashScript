@@ -19,6 +19,6 @@
   cd ../Discord.Net.Commands/ && dotnet restore && dotnet build --configuration Release
   cd ../../../src/NadekoBot/ && dotnet restore && dotnet build --configuration Release
   echo "Setting up NadekoBot"
-  dotnet run --configuration Release
+  dotnet build --configuration Release
   echo "Done. You can close the window."
 exit 0
