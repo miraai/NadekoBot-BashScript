@@ -21,4 +21,5 @@
   sudo cp ./bin/Release/netcoreapp1.0/libs/* ./bin/Release/netcoreapp1.0/
   echo "Setting up NadekoBot"
   dotnet run --configuration Release
+  echo "Done. You can close the window."
 exit 0
