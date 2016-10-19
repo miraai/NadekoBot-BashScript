@@ -18,7 +18,6 @@
   dotnet restore && dotnet build --configuration Release
   cd ../Discord.Net.Commands/ && dotnet restore && dotnet build --configuration Release
   cd ../../../src/NadekoBot/ && dotnet restore && dotnet build --configuration Release
-  sudo cp ./bin/Release/netcoreapp1.0/libs/* ./bin/Release/netcoreapp1.0/
   echo "Setting up NadekoBot"
   dotnet run --configuration Release
   echo "Done. You can close the window."
