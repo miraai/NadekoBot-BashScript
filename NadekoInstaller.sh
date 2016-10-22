@@ -1,23 +1,23 @@
 #!/bin/bash
   echo "NadekoBot 1.0 Download"
   echo "Mirai was here."
-  if git --version 2>&1 >/dev/null; 
+  if git 2>&1 >/dev/null; 
   then echo "Git Installed." 
   else echo "Git is not installed. Please install Git." | exit 1
-  if dotnet --version 2>&1 >/dev/null; 
+  if dotnet 2>&1 >/dev/null; 
   then echo "Dotnet installed." 
   else echo "Dotnet is not installed. Please install dotnet." | exit 1
-  mkdir NadekoBot-temp
+  mkdir NadekoInstall_Temp
   echo "Created NadekoBot-temp folder"
-  cd NadekoBot-temp
+  cd NadekoInstall_Temp
   echo "Downloading NadekoBot, please wait."
   git clone -b 1.0 --recursive -v https://github.com/Kwoth/NadekoBot.git
   echo "NadekoBot downloaded."
+  cd NadekoInstall_Temp\NadekoBot\
+  dotnet restore >nul 2>&1
+  cd NadekoInstall_Temp\NadekoBot\src\NadekoBot\
   echo "Building NadekoBot"
-  cd NadekoBot/discord.net/src/Discord.Net
-  dotnet restore && dotnet build --configuration Release
-  cd ../Discord.Net.Commands/ && dotnet restore && dotnet build --configuration Release
-  cd ../../../src/NadekoBot/ && dotnet restore && dotnet build --configuration Release
+  dotnet build --configuration Release
   echo "Setting up NadekoBot"
   dotnet build --configuration Release
   echo "Done. You can close the window."
