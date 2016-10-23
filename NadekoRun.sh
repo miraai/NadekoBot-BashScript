@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "NadekoBot 1.0"
 echo "Mirai was here."
