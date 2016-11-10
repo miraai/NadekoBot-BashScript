@@ -38,14 +38,18 @@ echo "NadekoBot downloaded."
 
 echo ""
 echo "Downloading Nadeko dependencies"
-cd NadekoBot
+cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net
+dotnet restore 1>/dev/null 2>&1
+cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net.Commands
+dotnet restore 1>/dev/null 2>&1
+cd $root/$tempdir/NadekoBot/src/NadekoBot/
 dotnet restore 1>/dev/null 2>&1
 echo ""
 echo "Download done"
 
 echo ""
 echo "Building NadekoBot"
-cd src/NadekoBot/
+cd $root/$tempdir/NadekoBot/src/NadekoBot/
 dotnet build --configuration Release 1>/dev/null 2>&1
 echo ""
 echo "Building done. Moving Nadeko"
@@ -59,7 +63,7 @@ else
     rm -rf NadekoBot_old 1>/dev/null 2>&1
     mv -fT NadekoBot NadekoBot_old 1>/dev/null 2>&1
     mv $tempdir/NadekoBot NadekoBot
-    cp -f $root/NadekoBot_old/src/NadekoBot/credentials.json "$root"/NadekoBot/srcnano /NadekoBot/credentials.json 1>/dev/null 2>&1
+    cp -f $root/NadekoBot_old/src/NadekoBot/credentials.json $root/NadekoBot/src/NadekoBot/credentials.json 1>/dev/null 2>&1
     echo ""
     echo "credentials.json copied to the new version"
     cp -RT $root/NadekoBot_old/src/NadekoBot/bin/ $root/NadekoBot/src/NadekoBot/bin/ 1>/dev/null 2>&1
