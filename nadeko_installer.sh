@@ -1,25 +1,20 @@
 #!/bin/sh
-echo ""
-echo "NadekoBot Installer started."
+printf "\nNadekoBot Installer started.\n\n"
 
 if hash git 1>/dev/null 2>&1
 then
-    echo ""
-    echo "Git Installed."
+    printf "Git Installed.\n\n"
 else
-    echo ""    
-    echo "Git is not installed. Please install Git."
+    printf "Git is not installed. Please install Git.\n\n"
     exit 1
 fi
 
 
 if hash dotnet 1>/dev/null 2>&1
 then
-    echo ""
-    echo "Dotnet installed."
+    printf "Dotnet installed.\n\n"
 else
-    echo ""
-    echo "Dotnet is not installed. Please install dotnet."
+    printf "Dotnet is not installed. Please install dotnet.\n\n"
     exit 1
 fi
 
@@ -30,29 +25,23 @@ rm -r "$tempdir" 1>/dev/null 2>&1
 mkdir "$tempdir"
 cd "$tempdir"
 
-echo ""
-echo "Downloading NadekoBot, please wait."
+printf "Downloading NadekoBot, please wait.\n\n"
 git clone -b 1.0 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
-echo ""
-echo "NadekoBot downloaded."
+printf "NadekoBot downloaded.\n\n"
 
-echo ""
-echo "Downloading Nadeko dependencies"
+printf "Downloading Nadeko dependencies\n\n"
 cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net
 dotnet restore 1>/dev/null 2>&1
 cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net.Commands
 dotnet restore 1>/dev/null 2>&1
 cd $root/$tempdir/NadekoBot/src/NadekoBot/
 dotnet restore 1>/dev/null 2>&1
-echo ""
-echo "Download done"
+printf "Download done\n\n"
 
-echo ""
-echo "Building NadekoBot"
+printf "Building NadekoBot\n\n"
 cd $root/$tempdir/NadekoBot/src/NadekoBot/
 dotnet build --configuration Release 1>/dev/null 2>&1
-echo ""
-echo "Building done. Moving Nadeko"
+printf "Building done. Moving Nadeko\n\n"
 
 cd "$root"
 
@@ -64,17 +53,13 @@ else
     mv -fT NadekoBot NadekoBot_old 1>/dev/null 2>&1
     mv $tempdir/NadekoBot NadekoBot
     cp -f $root/NadekoBot_old/src/NadekoBot/credentials.json $root/NadekoBot/src/NadekoBot/credentials.json 1>/dev/null 2>&1
-    echo ""
-    echo "credentials.json copied to the new version"
+    printf "credentials.json copied to the new version\n\n"
     cp -RT $root/NadekoBot_old/src/NadekoBot/bin/ $root/NadekoBot/src/NadekoBot/bin/ 1>/dev/null 2>&1
-    echo ""
-    echo "Database copied to the new version"
+    printf "Database copied to the new version\n\n"
     cp -RT $root/NadekoBot_old/src/NadekoBot/data/ $root/NadekoBot/src/NadekoBot/data/ 1>/dev/null 2>&1
-    echo ""
-    echo "Other data copied to the new version"
+    printf "Other data copied to the new version\n\n"
 fi
 
 rm -r "$tempdir"
-echo ""
-echo "Installation Complete."
+printf "Installation Complete.\n\n"
 exit 0
