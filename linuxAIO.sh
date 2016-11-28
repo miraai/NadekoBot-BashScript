@@ -15,7 +15,7 @@ if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading NadekoBot, please wait."
-	curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_installer_latest.sh | sh
+	curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer_latest.sh | sh
 	echo ""
 	echo "NadekoBot Dev Build (latest) downloaded."
 	bash linuxAIO.sh
@@ -23,7 +23,7 @@ else
 	if [ $choice -eq 2 ] ; then
 		echo ""
 		echo "Downloading NadekoBot, please wait."
-		curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_installer.sh | sh
+		curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer.sh | sh
 		echo ""
 		echo "NadekoBot Stable Build downloaded."
 		bash linuxAIO.sh
@@ -31,7 +31,7 @@ else
 		if [ $choice -eq 3 ] ; then
 			echo ""
 			echo "Running Nadeko Normally, if you are running this to check Nadeko, use .die command on discord to stop Nadeko."
-			curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_run.sh | sh
+			curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_run.sh | sh
 			echo ""
 			echo "Welcome back to NadekoBot."
 			bash linuxAIO.sh
@@ -40,7 +40,7 @@ else
 				echo ""
 				echo "Running Nadeko with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 10s
-				curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_autorestart.sh | sh
+				curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_autorestart.sh | sh
 				echo ""
 				echo "Looks like that didn't work."
 			else
