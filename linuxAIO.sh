@@ -18,6 +18,7 @@ if [ $choice -eq 1 ] ; then
 	curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_installer_latest.sh | sh
 	echo ""
 	echo "NadekoBot Dev Build (latest) downloaded."
+	bash linuxAIO.sh
 else
 	if [ $choice -eq 2 ] ; then
 		echo ""
@@ -25,6 +26,7 @@ else
 		curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_installer.sh | sh
 		echo ""
 		echo "NadekoBot Stable Build downloaded."
+		bash linuxAIO.sh
 	else
 		if [ $choice -eq 3 ] ; then
 			echo ""
@@ -32,6 +34,7 @@ else
 			curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadeko_run.sh | sh
 			echo ""
 			echo "Welcome back to NadekoBot."
+			bash linuxAIO.sh
 		else
 			if [ $choice -eq 4 ] ; then
 				echo ""
