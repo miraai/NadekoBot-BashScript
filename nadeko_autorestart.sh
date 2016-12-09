@@ -21,31 +21,13 @@ while [ $choice -eq 5 ]; do
 read choice
 
 if [ $choice -eq 1 ] ; then
-	echo ""
-	cd NadekoBot/src/NadekoBot
-	echo "Running NadekoBot with auto restart and without updating!"
-	sleep 3s
-	while :; do dotnet run -c Release; sleep 5s; done
-	echo "Done"
+	curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARN.sh | sh
 else
 	if [ $choice -eq 2 ] ; then
-		echo ""
-		echo "Running NadekoBot with auto restart and updating to latest build!"
-		sleep 5s
-		while :; do cd NadekoBot/src/NadekoBot && dotnet run -c Release && cd - && curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer_latest.sh | sh; sleep 5s; done
-		echo ""
-		echo "That didn't work? Please report in #NadekoLog Discord Server."
-		sleep 3s
-		bash linuxAIO.sh
+		curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARU_Latest.sh | sh
 	else
 		if [ $choice -eq 3 ] ; then
-			echo ""
-			echo "Running NadekoBot with auto restart and updating to stable build!"
-			while :; do cd NadekoBot/src/NadekoBot && dotnet run -c Release && cd - && curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer.sh | sh; sleep 5s; done
-			echo ""
-			echo "That didn't work? Please report in #NadekoLog Discord Server."
-			sleep 3s
-			bash linuxAIO.sh
+			curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARU_Stable.sh | sh
 		else
 			if [ $choice -eq 4 ] ; then
 				echo ""
