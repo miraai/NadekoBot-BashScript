@@ -22,7 +22,6 @@ read choice
 
 if [ $choice -eq 1 ] ; then
 	echo ""
-	echo "
 	cd NadekoBot/src/NadekoBot
 	echo "Running NadekoBot with auto restart and without updating!"
 	sleep 3s
