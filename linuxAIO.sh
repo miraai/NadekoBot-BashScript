@@ -40,7 +40,7 @@ else
 				echo ""
 				echo "Running Nadeko with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
+				wget -N https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
 				echo ""
 				echo "Looks like that didn't work."
 			else
