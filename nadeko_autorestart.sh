@@ -1,13 +1,4 @@
 #!/bin/sh
-
-if hash dotnet 2>/dev/null
-then
-	echo "Dotnet installed."
-else
-	echo "Dotnet is not installed. Please install dotnet."
-	exit 1
-fi
-
 echo ""
 echo "Welcome to NadekoBot Auto Restart and Update!"
 
@@ -21,12 +12,15 @@ while [ $choice -eq 5 ]; do
 read choice
 
 if [ $choice -eq 1 ] ; then
+	echo ""
 	curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARN.sh | sh
 else
 	if [ $choice -eq 2 ] ; then
+		echo ""
 		curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARU_Latest.sh | sh
 	else
 		if [ $choice -eq 3 ] ; then
+			echo ""
 			curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/master/NadekoARU_Stable.sh | sh
 		else
 			if [ $choice -eq 4 ] ; then
