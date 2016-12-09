@@ -2,15 +2,14 @@
 echo ""
 echo "Welcome to NadekoBot."
 
-choice=7
+choice=6
 	echo "1. Download Dev Build (latest)"
 	echo "2. Download Stable Build"
 	echo "3. Run Nadeko (normally)"
 	echo "4. Run Nadeko with Auto Restart (check if nadeko is working properly, before using this)"
-	echo "5. Run with Auto Update and Restart
-	echo "6. To exit"
+	echo "5. To exit"
 	echo -n "Choose [1 or 2] to Download [3 or 4] to Run."
-while [ $choice -eq 7 ]; do
+while [ $choice -eq 6 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 
