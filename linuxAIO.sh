@@ -39,8 +39,8 @@ else
 			if [ $choice -eq 4 ] ; then
 				echo ""
 				echo "Running Nadeko with Auto Restart you will have to close the session to stop the auto restart."
-				sleep 10s
-				curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_autorestart.sh | sh
+				sleep 5s
+				wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
 				echo ""
 				echo "Looks like that didn't work."
 			else
