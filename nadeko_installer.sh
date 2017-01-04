@@ -32,15 +32,19 @@ cd "$tempdir"
 
 echo ""
 echo "Downloading NadekoBot, please wait."
-git clone -b 1.0 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
+git clone -b master --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
 echo ""
 echo "NadekoBot downloaded."
 
 echo ""
 echo "Downloading Nadeko dependencies"
-cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net
+cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.Core/
 dotnet restore 1>/dev/null 2>&1
-cd $root/$tempdir/NadekoBot/discord.net/src/Discord.Net.Commands
+cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.Rest/
+dotnet restore 1>/dev/null 2>&1
+cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.WebSocket/
+dotnet restore 1>/dev/null 2>&1
+cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.Commands/
 dotnet restore 1>/dev/null 2>&1
 cd $root/$tempdir/NadekoBot/src/NadekoBot/
 dotnet restore 1>/dev/null 2>&1
