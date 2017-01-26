@@ -17,5 +17,4 @@ sudo apt install dotnet-dev-1.0.0-preview2.1-00317 -y
 sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 cd ~
 wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/linuxAIO.sh
-wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoInstallerRunner.sh
-tmux new -s nadeko 'bash ./NadekoAutoInstallerRunner.sh'
+tmux new -s nadeko 'bash ./linuxAIO.sh'
