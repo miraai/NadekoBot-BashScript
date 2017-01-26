@@ -11,8 +11,12 @@ read -n 1 -s -p "Press any key to continue"
 
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev git dotnet-dev-1.0.0-preview2.1-00317 ffmpeg tmux -y
+sudo add-apt-repository ppa:mc3man/trusty-media
+sudo apt update
+sudo apt-get dist-upgrade -y
+sudo apt install git -y
+sudo apt install dotnet-dev-1.0.0-preview2.1-00317 -y
+sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 cd ~
 wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/linuxAIO.sh
 tmux new -s nadeko 'bash ./linuxAIO.sh'
