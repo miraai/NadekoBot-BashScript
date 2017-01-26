@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "Welcome to NadekoBot autoinstaller!"
 echo ""
-echo "Please note: This installer only works on Ubuntu 16.04LTS. If you aren't running that version, please download the correct version for your OS."
+echo "Please note: This installer only works on Ubuntu 14.04LTS. If you aren't running that version, please download the correct version for your OS."
 echo ""
 echo "If you dont know what version you're running, do 'lsb_release -a' in your terminal (witout the 's)."
 echo ""
