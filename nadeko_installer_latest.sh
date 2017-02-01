@@ -38,8 +38,6 @@ echo "NadekoBot downloaded."
 
 echo ""
 echo "Downloading Nadeko dependencies"
-cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.API/
-dotnet restore 1>/dev/null 2>&1
 cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.Core/
 dotnet restore 1>/dev/null 2>&1
 cd $root/$tempdir/NadekoBot/Discord.Net/src/Discord.Net.Rest/
