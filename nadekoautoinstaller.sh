@@ -161,7 +161,7 @@ fi
 
 echo
 echo "Installation completed..."
-sleep 5
+sleep 2
 
 tmux new -s nadeko 'rm nadekoautoinstaller.sh && bash linuxAIO.sh'
 

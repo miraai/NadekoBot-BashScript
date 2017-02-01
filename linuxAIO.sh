@@ -44,13 +44,13 @@ else
 				sleep 5s
 				wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
 				echo ""
-				echo "Look you're back, why?"
+				echo "That did not work?"
 				bash linuxAIO.sh
 			else
 				if [ $choice -eq 5 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/samdivaio/NadekoBot-BashScript/raw/master/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
+					wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
 					echo ""
 					echo "Welcome back..."
 					bash linuxAIO.sh
