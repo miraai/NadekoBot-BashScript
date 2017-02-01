@@ -144,7 +144,7 @@ echo "{
 echo Credentials setup completed.
 sleep 5
 clear
-cd ~
+cd -
 tmux new -s nadeko 'bash linuxAIO.sh'
 					else
 						if [ $choice -eq 7 ] ; then
