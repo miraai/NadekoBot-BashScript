@@ -160,8 +160,7 @@ echo
 echo "Installation completed..."
 sleep 5
 cd ~
-wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/linuxAIO.sh
 
-tmux new -s nadeko 'rm nadekoautoinstaller.sh && bash ./linuxAIO.sh'
+tmux new -s nadeko 'rm nadekoautoinstaller.sh && bash linuxAIO.sh'
 
 exit 0
