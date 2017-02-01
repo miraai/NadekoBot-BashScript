@@ -155,6 +155,7 @@ sudo apt-get update
 echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
 sudo apt-get update && sudo apt-get install ffmpeg -y
 sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+sudo apt install git -y
 sudo apt-get install tmux -y
 fi
 
