@@ -51,6 +51,7 @@ if [ "$BITS" = 32 ]; then
 	echo -e "Your system architecture is $ARCH which is unsupported to run Microsoft .NET Core SDK. \nYour OS: $OS \nOS Version: $VER"
 	echo
 	printf "\e[1;31mPlease check the NadekoBot self-hosting guide for alternatives.\e[0m\n"
+	rm nadekoautoinstaller.sh
 	exit 1
 fi
 
@@ -70,6 +71,7 @@ fi
 
 if [ "$supported" = 0 ]; then
 	echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
+	rm nadekoautoinstaller.sh
 	exit 1
 fi
 
@@ -81,7 +83,7 @@ if [ "$supported" = 2 ]; then
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Okay... Lets go; sleep 2; break;;
-        [Nn]* ) echo Exiting...; exit;;
+        [Nn]* ) echo Exiting...; rm nadekoautoinstaller.sh && exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 	done
@@ -93,7 +95,7 @@ while true; do
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Running NadekoBot Auto-Installer; sleep 2; break;;
-        [Nn]* ) echo Quitting...; exit;;
+        [Nn]* ) echo Quitting...; rm nadekoautoinstaller.sh && exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
