@@ -87,7 +87,7 @@ if [ "$supported" = 2 ]; then
 	done
 fi
 
-echo -e "Welcome to NadekoBot Auto Prerequisites Installer. This will install all the NadekoBot's prerequisites before installing NadekoBot... \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
+echo -e "Welcome to NadekoBot Auto Prerequisites Installer. \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
 
 while true; do
     read -p "[y/n]: " yn
@@ -99,7 +99,7 @@ while true; do
 done
 
 if [ "$OS" = "Ubuntu" ]; then
-echo "This installer will download all of the required packages for NadekoBot. It will use about 350MB of space. This might take awhile to download if you dont have a good internet connection."
+echo "This installer will download all of the required packages for NadekoBot. It will use about 350MB of space. This might take awhile to download if you do not have a good internet connection."
 echo ""
 read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
