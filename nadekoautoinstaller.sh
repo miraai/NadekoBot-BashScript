@@ -107,6 +107,7 @@ read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
 	echo ""
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo add-apt-repository ppa:mc3man/trusty-media -y
@@ -122,6 +123,7 @@ read -n 1 -s -p "Press any key to continue..."
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt-get update
@@ -134,6 +136,7 @@ read -n 1 -s -p "Press any key to continue..."
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt-get update
@@ -147,6 +150,7 @@ read -n 1 -s -p "Press any key to continue..."
 elif [ "$OS" = "Debian" ]; then
 echo ""
 echo "Adding .NET to PATH"
+sudo apt-get install software-properties-common apt-transport-https -y
 sudo apt-get install curl libunwind8 gettext
 curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
 sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
@@ -164,6 +168,6 @@ echo
 echo "Installation completed..."
 sleep 2
 
-tmux new -s nadeko 'rm nadekoautoinstaller.sh && bash linuxAIO.sh'
+rm nadekoautoinstaller.sh && bash linuxAIO.sh
 
 exit 0
