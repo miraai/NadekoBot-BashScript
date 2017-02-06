@@ -151,6 +151,7 @@ bash linuxAIO.sh
 							echo "Exiting..."
 							exit 0
 						else
+							clear
 							echo "1. Download Dev Build (Latest)"
 							echo "2. Download Stable Build"
 							echo "3. Run Nadeko (Normally)"
