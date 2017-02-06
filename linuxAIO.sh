@@ -7,9 +7,9 @@ choice=8
 	echo "2. Download Stable Build"
 	echo "3. Run Nadeko (Normally)"
 	echo "4. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
-	echo "5. Auto-Install Prerequisites (for Ubuntu and Debian)"
-	echo "6. Set up credentials.json (if you have downloaded the bot already)"
-	echo "7. To exit"
+	echo "5. Auto-Install Prerequisites (For Ubuntu and Debian)"
+	echo "6. Set up credentials.json (If you have downloaded NadekoBot already.)"
+	echo "7. To Exit"
 	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit"
 while [ $choice -eq 8 ]; do
 read choice
@@ -68,7 +68,6 @@ while true; do
     esac
 done
 clear
-cd ~
 cd NadekoBot/src/NadekoBot
 mv credentials.json credentials.json.old
 
@@ -145,20 +144,21 @@ echo Credentials setup completed.
 sleep 5
 clear
 cd -
-tmux new -s nadeko 'bash linuxAIO.sh'
+bash linuxAIO.sh
 					else
 						if [ $choice -eq 7 ] ; then
 							echo ""
 							echo "Exiting..."
 							exit 0
 						else
+							clear
 							echo "1. Download Dev Build (Latest)"
 							echo "2. Download Stable Build"
 							echo "3. Run Nadeko (Normally)"
 							echo "4. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
-							echo "5. Auto-Install Prerequisites (for Ubuntu and Debian)"
-							echo "6. Set up credentials.json (if you have downloaded the bot already)"
-							echo "7. To exit"
+							echo "5. Auto-Install Prerequisites (For Ubuntu and Debian)"
+							echo "6. Set up credentials.json (If you have downloaded NadekoBot already.)"
+							echo "7. To Exit"
 							echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit."
 							choice=8
 						fi
