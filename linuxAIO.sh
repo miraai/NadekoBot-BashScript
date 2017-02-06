@@ -68,7 +68,6 @@ while true; do
     esac
 done
 clear
-cd ~
 cd NadekoBot/src/NadekoBot
 mv credentials.json credentials.json.old
 
