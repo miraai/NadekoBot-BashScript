@@ -64,6 +64,8 @@ if [ "$OS" = "Ubuntu" ]; then
 		supported=1
 	elif [ "$VER" = "16.10" ]; then
 		supported=1
+	elif [ "$VER" = "17.04" ]; then
+		supported=1
 	else
 		supported=2
 	fi
@@ -134,6 +136,19 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing prerequisites..."
 	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.10" ]; then
+	echo ""
+	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt-get update
+	echo "Installing Git..."
+	sudo apt install git -y
+	echo "Installing .NET Core..."
+	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	echo "Installing prerequisites..."
+	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	elif [ "$VER" = "17.04" ]; then
 	echo ""
 	echo "Preparing..."
 	sudo apt-get install software-properties-common apt-transport-https -y
