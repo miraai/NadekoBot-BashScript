@@ -9,7 +9,8 @@ function detect_OS_ARCH_VER_BITS {
 	elif [ -f /etc/debian_version ]; then
 	    OS=Debian  # XXX or Ubuntu??
 	    VER=$(cat /etc/debian_version)
-	#elif [ -f /etc/redhat-release ]; then
+	elif [ -f /etc/centos-release ]; then
+		OS=CentOS
 	else
 	    OS=$(uname -s)
 	    VER=$(uname -r)
@@ -177,6 +178,14 @@ sudo apt-get update && sudo apt install ffmpeg -y
 sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 sudo apt-get install git -y
 sudo apt-get install tmux -y
+elif [ "$OS" = "CentOS" ]; then
+echo ""
+echo "Preparing..."
+curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+sudo yum install git opus opus-devel ffempeg tmux -y
 fi
 
 echo
