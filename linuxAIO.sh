@@ -68,7 +68,6 @@ while true; do
     esac
 done
 clear
-cd ~
 cd NadekoBot/src/NadekoBot
 mv credentials.json credentials.json.old
 
@@ -145,13 +144,14 @@ echo Credentials setup completed.
 sleep 5
 clear
 cd -
-tmux new -s nadeko 'bash linuxAIO.sh'
+bash linuxAIO.sh
 					else
 						if [ $choice -eq 7 ] ; then
 							echo ""
 							echo "Exiting..."
 							exit 0
 						else
+							clear
 							echo "1. Download Dev Build (Latest)"
 							echo "2. Download Stable Build"
 							echo "3. Run Nadeko (Normally)"
