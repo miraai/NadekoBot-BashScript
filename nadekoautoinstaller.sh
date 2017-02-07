@@ -109,74 +109,74 @@ read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo add-apt-repository ppa:mc3man/trusty-media -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
 	sudo apt update
-	sudo apt-get dist-upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo apt-get update
+	sudo apt update
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
-	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo apt-get update
+	sudo apt update
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
-	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "17.04" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo apt-get update
+	sudo apt update
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
-	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	fi
 elif [ "$OS" = "Debian" ]; then
 echo ""
 echo "Adding .NET to PATH"
-sudo apt-get install software-properties-common apt-transport-https -y
-sudo apt-get install curl libunwind8 gettext
+sudo apt install software-properties-common apt-transport-https -y
+sudo apt install curl libunwind8 gettext
 curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
 sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 echo "Installing prerequisites..."
-sudo apt-get update
+sudo apt update
 echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
-sudo apt-get update && sudo apt-get install ffmpeg -y
-sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+sudo apt update && sudo apt install ffmpeg -y
+sudo apt install libopus0 opus-tools libopus-dev libsodium-dev -y
 sudo apt install git -y
-sudo apt-get install tmux -y
+sudo apt install tmux -y
 fi
 
 echo
