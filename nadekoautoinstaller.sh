@@ -107,7 +107,7 @@ echo "This installer will download all of the required packages for NadekoBot. I
 echo ""
 read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
-	echo ""
+	echo "Gwen was here <3"
 	echo "Preparing..."
 	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
