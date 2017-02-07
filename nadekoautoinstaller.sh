@@ -181,6 +181,7 @@ sudo apt-get install tmux -y
 elif [ "$OS" = "CentOS" ]; then
 echo ""
 echo "Preparing..."
+sudo yum install libunwind libicu -y
 curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
 sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 sudo ln -s /opt/dotnet/dotnet /usr/local/bin
