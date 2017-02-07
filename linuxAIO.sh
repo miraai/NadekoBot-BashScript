@@ -33,15 +33,7 @@ else
 		if [ $choice -eq 3 ] ; then
 			echo ""
 			echo "Running Nadeko Normally, if you are running this to check Nadeko, use .die command on discord to stop Nadeko."
-			echo -e "Do you want to use tmux? If you're running this in SSH or PuTTY, you'll want to select yes.'"
-				while true; do
-    				read -p "[Y/N]: " yn
-   					case $yn in
-        			[Yy]* ) tmux kill-session -t nadeko; tmux new -s nadeko 'wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_run.sh && bash nadeko_run.sh'; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        			[Nn]* ) wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_run.sh && bash nadeko_run.sh; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        				* ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
-   				 	esac
-				done
+			curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_run.sh | sh
 			echo ""
 			echo "Welcome back to NadekoBot."
 			bash linuxAIO.sh
@@ -50,15 +42,7 @@ else
 				echo ""
 				echo "Running Nadeko with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				echo -e "Do you want to use tmux? If you're running this in SSH or PuTTY, you'll want to select yes.'"
-				while true; do
-    				read -p "[Y/N]: " yn
-   					case $yn in
-        			[Yy]* ) tmux kill-session -t nadeko; tmux new -s nadeko 'wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh'; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        			[Nn]* ) wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        				* ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
-   				 	esac
-				done
+				wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
 				echo ""
 				echo "That did not work?"
 				bash linuxAIO.sh
@@ -80,7 +64,7 @@ while true; do
     case $yn in
         [Yy]* ) clear; break;;
         [Nn]* ) echo Exiting...; exit;;
-        * ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
+        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
 clear
