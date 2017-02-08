@@ -161,14 +161,16 @@ read -n 1 -s -p "Press any key to continue..."
 elif [ "$OS" = "Debian" ]; then
 	if [ "$SVER" = "8" ]; then
 		echo ""
-		echo "Adding .NET to PATH"
+		echo "Adding .NET to PATH..."
+		apt-get update
+		apt-get upgrade -y
+		apt-get install sudo -y
 		sudo apt-get install software-properties-common apt-transport-https -y
-		sudo apt-get install curl libunwind8 gettext
+		sudo apt-get install curl libunwind8 gettext -y
 		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		echo "Installing prerequisites..."
-		sudo apt-get update
 		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
 		sudo apt-get update && sudo apt install ffmpeg -y
 		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
