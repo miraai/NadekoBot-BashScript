@@ -13,6 +13,9 @@ function detect_OS_ARCH_VER_BITS {
 	elif [ -f /etc/centos-release ]; then
 		OS=CentOS
 		VER=$( cat /etc/centos-release | grep -oP "[0-9]+" | head -1 )
+	elif [ -f /etc/fedora-release ]; then
+		OS=Fedora
+		VER=$( cat /etc/fedora-release | grep -oP "[0-9]+" | head -1 )
 	else
 	    OS=$(uname -s)
 	    VER=$(uname -r)
@@ -196,6 +199,45 @@ elif [ "$OS" = "CentOS" ]; then
 		yum install sudo -y
 		sudo yum install libunwind libicu -y
 		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+		sudo yum install git opus opus-devel ffempeg tmux -y
+	else
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
+		rm nadekoautoinstaller.sh
+		exit 1
+	fi
+elif [ "$OS" = "Fedora" ]; then
+	if [ "$VER" = "23" ]; then
+		echo ""
+		echo "Preparing..."
+		yum --obsoletes --exclude=kernel* update -y
+		yum install sudo -y
+		sudo yum install libunwind libicu -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835023
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+		sudo yum install git opus opus-devel ffempeg tmux -y
+elif [ "$VER" = "24" ]; then
+		echo ""
+		echo "Preparing..."
+		yum --obsoletes --exclude=kernel* update -y
+		yum install sudo -y
+		sudo yum install libunwind libicu -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835025
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+		sudo yum install git opus opus-devel ffempeg tmux -y
+elif [ "$VER" = "25" ]; then
+		echo ""
+		echo "Preparing..."
+		yum --obsoletes --exclude=kernel* update -y
+		yum install sudo -y
+		sudo yum install libunwind libicu -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835025
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
