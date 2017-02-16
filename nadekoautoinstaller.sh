@@ -211,6 +211,5 @@ echo
 echo "NadekoBot Prerequisites Installation completed..."
 sleep 2
 
-rm nadekoautoinstaller.sh && bash linuxAIO.sh
-
+rm nadekoautoinstaller.sh
 exit 0
