@@ -7,7 +7,7 @@ choice=8
 	echo "2. Download Stable Build"
 	echo "3. Run Nadeko (Normally)"
 	echo "4. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
-	echo "5. Auto-Install Prerequisites (For Ubuntu, Debian, CentOS, and Fedora)"
+	echo "5. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
 	echo "6. Set up credentials.json (If you have downloaded NadekoBot already.)"
 	echo "7. To Exit"
 	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit"
