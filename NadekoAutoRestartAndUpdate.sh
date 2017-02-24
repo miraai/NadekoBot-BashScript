@@ -28,7 +28,7 @@ else
 				echo "Exiting..."
 				exit 0
 			else
-				echo ""
+				clear
 				echo "1. Run Auto Restart normally without Updating."
 				echo "2. Auto Restart and Update with Dev Build (latest)"
 				echo "3. Auto Restart and Update with Stable Build"
