@@ -9,7 +9,10 @@ function detect_OS_ARCH_VER_BITS {
 	elif [ -f /etc/debian_version ]; then
 	    OS=Debian  # XXX or Ubuntu??
 	    VER=$(cat /etc/debian_version)
-	#elif [ -f /etc/redhat-release ]; then
+	    SVER=$( cat /etc/debian_version | grep -oP "[0-9]+" | head -1 )
+	elif [ -f /etc/centos-release ]; then
+		OS=CentOS
+		VER=$( cat /etc/centos-release | grep -oP "[0-9]+" | head -1 )
 	else
 	    OS=$(uname -s)
 	    VER=$(uname -r)
@@ -64,29 +67,24 @@ if [ "$OS" = "Ubuntu" ]; then
 		supported=1
 	elif [ "$VER" = "16.10" ]; then
 		supported=1
+	elif [ "$VER" = "17.04" ]; then
+		supported=1
 	else
-		supported=2
+		supported=0
 	fi
 fi
 
 if [ "$supported" = 0 ]; then
 	echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
+	printf "\e[1;31mContact NadekoBot's support on Discord with screenshot.\e[0m\n"
 	rm nadekoautoinstaller.sh
 	exit 1
 fi
 
-if [ "$supported" = 2 ]; then
-	echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support in Discord with screenshot before continuing..."
-	printf "\e[1;31mIf Nadeko support staff believe you can run it, Press [y] to continue or [n] to exit.\e[0m\n"
-	sleep 10
-	while true; do
-    read -p "[y/n]: " yn
-    case $yn in
-        [Yy]* ) clear; echo Okay... Lets go; sleep 2; break;;
-        [Nn]* ) echo Exiting...; rm nadekoautoinstaller.sh && exit;;
-        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
-    esac
-	done
+if [ "$OS" = "Linux" ]; then
+	echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
+	rm nadekoautoinstaller.sh
+	exit 1
 fi
 
 echo -e "Welcome to NadekoBot Auto Prerequisites Installer. \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
@@ -105,65 +103,113 @@ echo "This installer will download all of the required packages for NadekoBot. I
 echo ""
 read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
-	echo ""
+	echo "Gwen was here <3"
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo add-apt-repository ppa:mc3man/trusty-media -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
 	sudo apt update
-	sudo apt-get dist-upgrade -y
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo apt-get update
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
-	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo apt-get update
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
 	echo "Installing prerequisites..."
-	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	elif [ "$VER" = "17.04" ]; then
+	echo ""
+	echo "Preparing..."
+	sudo apt-get install software-properties-common apt-transport-https -y
+	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
+	echo "Installing Git..."
+	sudo apt install git -y
+	echo "Installing .NET Core..."
+	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+	echo "Installing prerequisites..."
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	fi
 elif [ "$OS" = "Debian" ]; then
-echo ""
-echo "Adding .NET to PATH"
-sudo apt-get install curl libunwind8 gettext
-curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-sudo ln -s /opt/dotnet/dotnet /usr/local/bin
-echo "Installing prerequisites..."
-sudo apt-get update
-echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
-sudo apt-get update && sudo apt-get install ffmpeg -y
-sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
-sudo apt install git -y
-sudo apt-get install tmux -y
+	if [ "$SVER" = "8" ]; then
+		echo ""
+		echo "Adding .NET to PATH..."
+		apt-get update
+		apt-get upgrade -y
+		apt-get install sudo -y
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo apt-get install curl libunwind8 gettext -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		echo "Installing prerequisites..."
+		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
+		sudo apt-get update && sudo apt install ffmpeg -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+		sudo apt-get install git -y
+		sudo apt-get install tmux -y
+	else
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
+		rm nadekoautoinstaller.sh
+		exit 1
+	fi
+elif [ "$OS" = "CentOS" ]; then
+	if [ "$VER" = "7" ]; then
+		echo ""
+		echo "Preparing..."
+		yum --obsoletes --exclude=kernel* update -y
+		yum install sudo -y
+		sudo yum install libunwind libicu -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+		sudo yum install git opus opus-devel ffempeg tmux -y
+	else
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
+		rm nadekoautoinstaller.sh
+		exit 1
+	fi
 fi
 
 echo
-echo "Installation completed..."
+echo "NadekoBot Prerequisites Installation completed..."
 sleep 2
 
-tmux new -s nadeko 'rm nadekoautoinstaller.sh && bash linuxAIO.sh'
-
+rm nadekoautoinstaller.sh
 exit 0
