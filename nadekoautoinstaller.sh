@@ -116,7 +116,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.04" ]; then
@@ -131,7 +131,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "16.10" ]; then
@@ -146,7 +146,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	elif [ "$VER" = "17.04" ]; then
@@ -161,7 +161,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt install dotnet-dev-1.0.0-preview2.1-003177 -y
+	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	fi
@@ -174,7 +174,7 @@ elif [ "$OS" = "Debian" ]; then
 		apt-get install sudo -y
 		sudo apt-get install software-properties-common apt-transport-https -y
 		sudo apt-get install curl libunwind8 gettext -y
-		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848826
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		echo "Installing prerequisites..."
@@ -195,7 +195,7 @@ elif [ "$OS" = "CentOS" ]; then
 		yum --obsoletes --exclude=kernel* update -y
 		yum install sudo -y
 		sudo yum install libunwind libicu -y
-		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
