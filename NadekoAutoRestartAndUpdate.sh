@@ -13,15 +13,15 @@ while [ $choice -eq 5 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 	echo ""
-	curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoARN.sh | sh
+	curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/1.4/NadekoARN.sh | sh
 else
 	if [ $choice -eq 2 ] ; then
 		echo ""
-		curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoARU_Latest.sh | sh
+		curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/1.4/NadekoARU_Latest.sh | sh
 	else
 		if [ $choice -eq 3 ] ; then
 			echo ""
-			curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoARU_Stable.sh | sh
+			curl -L https://github.com/samdivaio/NadekoBot-BashScript/raw/1.4/NadekoARU_Stable.sh | sh
 		else
 			if [ $choice -eq 4 ] ; then
 				echo ""
