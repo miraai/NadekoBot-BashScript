@@ -32,7 +32,7 @@ cd "$tempdir"
 
 echo ""
 echo "Downloading NadekoBot, please wait."
-git clone -b 1.4 --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
+git clone -b dev --recursive --depth 1 https://github.com/Kwoth/NadekoBot.git
 echo ""
 echo "NadekoBot downloaded."
 
@@ -62,8 +62,8 @@ else
     echo ""
     echo "credentials.json copied to the new version"
     cp -RT $root/NadekoBot_old/src/NadekoBot/bin/ $root/NadekoBot/src/NadekoBot/bin/ 1>/dev/null 2>&1
-    cp -RT $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db 1>/dev/null 2>&1
-    mv -f $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot_old.db 1>/dev/null 2>&1
+    cp -RT $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db 1>/dev/null 2>&1
+    mv -f $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db $root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot_old.db 1>/dev/null 2>&1
     echo ""
     echo "Database copied to the new version"
     cp -RT $root/NadekoBot_old/src/NadekoBot/data/ $root/NadekoBot/src/NadekoBot/data/ 1>/dev/null 2>&1
