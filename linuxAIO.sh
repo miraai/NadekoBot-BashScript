@@ -157,6 +157,5 @@ bash linuxAIO.sh
 			fi
 		fi
 	fi
-fi
 done
 exit 0
