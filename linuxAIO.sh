@@ -2,60 +2,51 @@
 echo ""
 echo "Welcome to NadekoBot."
 
-choice=8
-	echo "1. Download Dev Build (Latest)"
-	echo "2. Download Stable Build"
-	echo "3. Run Nadeko (Normally)"
-	echo "4. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
-	echo "5. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-	echo "6. Set up credentials.json (If you have downloaded NadekoBot already.)"
-	echo "7. To Exit"
-	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit"
-while [ $choice -eq 8 ]; do
+choice=7
+	echo "1. Download NadekoBot"
+	echo "2. Run Nadeko (Normally)"
+	echo "3. Run Nadeko with Auto Restart"
+	echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
+	echo "5. Set up credentials.json (If you have downloaded NadekoBot already)"
+	echo "6. Exit"
+	echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit"
+while [ $choice -eq 7 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading NadekoBot, please wait."
-	curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer_latest.sh | sh
+	curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/1.4/nadeko_installer_latest.sh | sh
 	echo ""
-	echo "NadekoBot Dev Build (Latest) downloaded."
+	echo "NadekoBot script downloaded."
 	bash linuxAIO.sh
 else
-	if [ $choice -eq 2 ] ; then
-		echo ""
-		echo "Downloading NadekoBot, please wait."
-		curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_installer.sh | sh
-		echo ""
-		echo "NadekoBot Stable Build downloaded."
-		bash linuxAIO.sh
-	else
-		if [ $choice -eq 3 ] ; then
+		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running Nadeko Normally, if you are running this to check Nadeko, use .die command on discord to stop Nadeko."
-			curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadeko_run.sh | sh
+			curl -L https://github.com/Kwoth/NadekoBot-BashScript/raw/1.4/nadeko_run.sh | sh
 			echo ""
 			echo "Welcome back to NadekoBot."
 			bash linuxAIO.sh
 		else
-			if [ $choice -eq 4 ] ; then
+			if [ $choice -eq 3 ] ; then
 				echo ""
 				echo "Running Nadeko with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
+				wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.4/NadekoAutoRestartAndUpdate.sh && bash NadekoAutoRestartAndUpdate.sh
 				echo ""
 				echo "That did not work?"
 				bash linuxAIO.sh
 			else
-				if [ $choice -eq 5 ] ; then
+				if [ $choice -eq 4 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/master/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
+					wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.4/nadekoautoinstaller.sh && bash nadekoautoinstaller.sh
 					echo ""
 					echo "Welcome back..."
 					bash linuxAIO.sh
 				else
-					if [ $choice -eq 6 ] ; then
+					if [ $choice -eq 5 ] ; then
 						echo ""
 						echo
 echo -e "Let's begin creating a new credentials.json file if you are about to run the NadekoBot for the first time. \n \nPlease read JSON Explanations in the guide... \n \nPress [Y] when you are ready to continue or [N] to exit."
@@ -146,21 +137,20 @@ clear
 cd -
 bash linuxAIO.sh
 					else
-						if [ $choice -eq 7 ] ; then
+						if [ $choice -eq 6 ] ; then
 							echo ""
 							echo "Exiting..."
 							exit 0
 						else
 							clear
-							echo "1. Download Dev Build (Latest)"
-							echo "2. Download Stable Build"
-							echo "3. Run Nadeko (Normally)"
-							echo "4. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
-							echo "5. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-							echo "6. Set up credentials.json (If you have downloaded NadekoBot already.)"
-							echo "7. To Exit"
-							echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit."
-							choice=8
+							echo "1. Download NadekoBot"
+							echo "2. Run Nadeko (Normally)"
+							echo "3. Run Nadeko with Auto Restart"
+							echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
+							echo "5. Set up credentials.json (If you have downloaded NadekoBot already)"
+							echo "6. Exit"
+							echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit."
+							choice=7
 						fi
 					fi
 				fi
