@@ -30,7 +30,7 @@ else
 				echo -n "Choose [1] to Run NadekoBot with auto restart on "die" command without updating itself, [2] to Run with Auto Updating on restart after using "die" command."
 				choice=4
 			fi
-		fi
+		
 	fi
 fi
 done
