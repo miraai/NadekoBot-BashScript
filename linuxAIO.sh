@@ -5,10 +5,10 @@ echo "Welcome to NadekoBot."
 choice=7
 	echo "1. Download NadekoBot"
 	echo "2. Run Nadeko (Normally)"
-	echo "3. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
+	echo "3. Run Nadeko with Auto Restart"
 	echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-	echo "5. Set up credentials.json (If you have downloaded NadekoBot already.)"
-	echo "6. To Exit"
+	echo "5. Set up credentials.json (If you have downloaded NadekoBot already)"
+	echo "6. Exit"
 	echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit"
 while [ $choice -eq 7 ]; do
 read choice
@@ -145,10 +145,10 @@ bash linuxAIO.sh
 							clear
 							echo "1. Download NadekoBot"
 							echo "2. Run Nadeko (Normally)"
-							echo "3. Run Nadeko with Auto Restart (Run Nadeko normally before using this.)"
+							echo "3. Run Nadeko with Auto Restart"
 							echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-							echo "5. Set up credentials.json (If you have downloaded NadekoBot already.)"
-							echo "6. To Exit"
+							echo "5. Set up credentials.json (If you have downloaded NadekoBot already)"
+							echo "6. Exit"
 							echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit."
 							choice=7
 						fi
