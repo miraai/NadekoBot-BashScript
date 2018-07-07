@@ -215,7 +215,7 @@ elif [ "$OS" = "ArchLinux" ]; then
 	echo "Arch support by PetNoire =^-^="
 	echo "Preparing..."
 	sudo pacman -Sy --noconfirm dotnet-runtime dotnet-sdk ffmpeg libsodium git opus redis python tmux wget
-	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo wget -nv -N https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	sudo systemctl enable redis
 fi
