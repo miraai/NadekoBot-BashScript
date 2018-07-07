@@ -13,6 +13,9 @@ function detect_OS_ARCH_VER_BITS {
 	elif [ -f /etc/centos-release ]; then
 		OS=CentOS
 		VER=$( cat /etc/centos-release | grep -oP "[0-9]+" | head -1 )
+	elif [ -f /etc/arch-release ]; then
+		OS=ArchLinux
+		VER=$(uname -r)
 	else
 	    OS=$(uname -s)
 	    VER=$(uname -r)
@@ -72,6 +75,8 @@ if [ "$OS" = "Ubuntu" ]; then
 	else
 		supported=0
 	fi
+elif [ "$OS" = "ArchLinux" ]; then
+	supported=1
 fi
 
 if [ "$supported" = 0 ]; then
@@ -205,6 +210,14 @@ elif [ "$OS" = "CentOS" ]; then
 		rm nadekoautoinstaller.sh
 		exit 1
 	fi
+elif [ "$OS" = "ArchLinux" ]; then
+	echo ""
+	echo "Arch support by PetNoire =^-^="
+	echo "Preparing..."
+	sudo pacman -Sy --noconfirm dotnet-runtime dotnet-sdk ffmpeg libsodium git opus redis python tmux wget
+	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo chmod a+rx /usr/local/bin/youtube-dl
+	sudo systemctl enable redis
 fi
 
 echo
